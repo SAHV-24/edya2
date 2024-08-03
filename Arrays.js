@@ -63,32 +63,92 @@ theArray.fill(9,0,-1)
 console.log("\n"+theArray) // returns [9,9,9,9,9,9,9,9]
 
 // Array.prototype.filter()
+    // filters the elements from an array that are valid to the condition:
+    // returns an ARRAY
+
+theArray = [{name:"Sergio",age:19},
+            {name:"Juan",age:19},
+            {name:"Andrés",age:20},]
+
+console.log()
+console.log(theArray.filter(person=>person.age===20)) // returns => [ { name: 'Andrés', age: 20 } ]
+
 // Array.prototype.find()
+    // returns the first element that meets the condition
+
+theArray = [{name:"Sergio",age:19},
+    {name:"Juan",age:19},
+    {name:"Andrés",age:20},]
+
+const ans = theArray.find(p=>p.age==19)
+
+console.log()
+console.log(ans) // returns => { name: 'Sergio', age: 19 } 
+
 // Array.prototype.findIndex()
+
+theArray = [93,8,-2,48,0]
+
+console.log()
+console.log(theArray.findIndex(x=> x===0)) // returns => 4
+
+// In case that the value is repeated, it'll find the first index that it finds 
+theArray = [93,8,-2,48,0,9,0]
+
+console.log(theArray.findIndex(x=> x===0)) // Still returns => s4
+
 // Array.prototype.findLast()
+    // Searches from the bottom of the array the corresponding value
+    // RETURNS THE VALUE! 
+
+theArray = [{name:"Sergio",age:18},
+            {name:"Juan",age:19},
+            {name:"Johan",age:18},
+            {name:"Orlando",age:18}]
+
+console.log("")
+console.log(theArray.findLast(person=>person.age===18))// ==> returns {name:"Orlando",age:18}
+
+
 // Array.prototype.findLastIndex()
+    // Searches from the bottom of the array the corresponding value
+    // RETURNS THE Zero based index of the Array.
+
+theArray = [{name:"Sergio",age:18},
+            {name:"Juan",age:19},
+            {name:"Johan",age:18},
+            {name:"Orlando",age:18}]
+
+console.log("")
+console.log(theArray.findLastIndex(person=>person.age==18)) // ==> returns 3
+
+
 // Array.prototype.flat()
 // Array.prototype.flatMap()
 // Array.prototype.forEach()
 // Array.prototype.includes()
 // Array.prototype.indexOf()
 // Array.prototype.join()
+
 // Array.prototype.keys()
 // Array.prototype.lastIndexOf()
 // Array.prototype.map()
 // Array.prototype.pop()
 // Array.prototype.push()
+
 // Array.prototype.reduce()
 // Array.prototype.reduceRight()
 // Array.prototype.reverse()
 // Array.prototype.shift()
 // Array.prototype.slice()
 // Array.prototype.some()
+
 // Array.prototype.sort()
 // Array.prototype.splice()
 // Array.prototype[@@iterator]()
 // Array.prototype.toLocaleString()
 // Array.prototype.toReversed()
+
 // Array.prototype.toSorted()
 // Array.prototype.toSpliced()
 // Array.prototype.toString()
