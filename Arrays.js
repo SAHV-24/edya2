@@ -210,10 +210,58 @@ theArray = ['I','Love','You']
 console.log(theArray.join(' ')) // it'll return 'I Love You', so romantic huh?
 
 // Array.prototype.keys()
+    // Returns an array iterator where you can access to it's indexes
+
+theArray = [3,6,2,1,90,-2,4,0]
+
+const keys = theArray.keys()
+
+for(let index of keys){
+    console.log(index) // prints 0 1 2 3 4 5 6 7
+}
+
 // Array.prototype.lastIndexOf()
+    // returns the last index of an instance that was found
+
+theArray = ['Madison Square','LA', 'Universal Hotel', 'Madison Square', 'Central Park']
+
+let answer = theArray.lastIndexOf('Madison Square')
+
+console.log("\n His last presentation at MS was on the "+ Number(answer+1) +"th day of Month.") // returns that his last presentation was on the fourth day
+
 // Array.prototype.map()
+    // applies a callback function on each element and returns an array!
+
+theArray = [4,5,6,7,8,9,0,1]
+
+answer = theArray.map( number => number ** number )
+
+console.log("\n"+answer) // returns [256,3125,46656,823543,16777216,387420489,1,1]
+
 // Array.prototype.pop()
+    // returns the last element of the array and deletes it on the array
+
+theArray = ['vegetables','fruits','water','alcohol']
+
+answer = theArray.pop()
+
+console.log("\nYou need to remove from your diet the "+ answer +" because it damages your current diet: " + theArray)
+// returns "You need to remove from your diet the alcohol because it damages your current diet: vegetables,fruits,water"
+
+
 // Array.prototype.push()
+    // returns the index+1! where the element will be added
+    // and adds the element to the Array.
+
+theArray = ['onion','sauce','water','chicken','tomato','lentils']
+
+// what does it misses for making lentils???
+
+answer = theArray.push('SALT!!!')
+
+console.log("\nDon't forget to add the " + theArray[answer-1])
+// returns "Don't forget to add the SALT!!!"
+
 
 // Array.prototype.reduce()
 // Array.prototype.reduceRight()
