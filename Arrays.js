@@ -124,11 +124,90 @@ console.log(theArray.findLastIndex(person=>person.age==18)) // ==> returns 3
 
 
 // Array.prototype.flat()
+    // Used for flatting the arrays, it flats the length of the parameter.
+theArray = [1,2,[[3,4],5]]
+console.log(theArray.flat(2)) // returns [1,2,3,4,5]
+
+theArray = [1,2,3,[[4,[5,[6]]],7]]
+console.log(theArray.flat(Infinity)) // returns [1,2,3,4,5,6,7]
+
 // Array.prototype.flatMap()
+    // Used for flatting an array and then doing something, for example
+    // if i want to multiply by two the odd numbers and eliminate the even numbers i can do 
+    // a flat map for it:
+
+    // for example:
+
+theArray = [1,2,3,4,5,6,7,8,9,10]
+
+// i could do this:
+/*
+    theArray
+        .filter(x=> x % 2 !== 0)
+        .map(x=> x*2)
+*/
+
+
+// or:
+console.log()
+console.log(theArray.
+                    flatMap(x=> x % 2 === 0 ? [] : [x*2] ))
+
+// => returns [ 2, 6, 10, 14, 18 ], so what it does is to flat an empty array if
+// it is an even number! and if it is an odd number, it'll flat the x*2 little array
+
 // Array.prototype.forEach()
+    // It executes the function that is inside the callback function 
+    // FOR EACH ELEMENT inside it!
+
+    // Note: It doesn't make a copy of the array before iterating :( 
+theArray = [9,2,1,32,78,90]
+
+console.log()
+theArray.forEach(num=> console.log(num)) // returns 9 2 1 32 78 90
+
+theArray = ["one","two","three","four"]
+theArray.forEach(num=>{
+    console.log(num)
+    if(num ==="two"){
+        theArray.shift(num)   // => returns one \n two \n four
+                              // won't return three cause it'll work with the current array for each iteration!
+    }
+})
+
+
 // Array.prototype.includes()
+    // returns true or false if it includes the given parameter
+
+theArray = ['dog','cat','turtle']
+
+console.log()
+console.log(theArray.includes('cat')) // ==> returns true
+console.log(theArray.includes('bull')) // ==> returns false
+
+// it also has something called fromIndex whether you can determine the search of the method:
+// if index > indexOfTheSearchedParameter returns false
+
+theArray = ['dog','cat','turtle']
+console.log(theArray.includes('cat',-1)) // returns false
+console.log(theArray.includes('cat',1)) // returns true
+
 // Array.prototype.indexOf()
+    // returns the first index where you can find the first element!
+    // it also has the fromIndex showed before.
+
+theArray = ['candy hall','dairy hall','lentils hall','candy hall']
+
+console.log()
+console.log(theArray.indexOf('candy hall') + 1) // it'll return 1 that is the first hall on the supermarket that was found
+
+
 // Array.prototype.join()
+    // it join's the elements inside an array!
+    
+theArray = ['I','Love','You']
+
+console.log(theArray.join(' ')) // it'll return 'I Love You', so romantic huh?
 
 // Array.prototype.keys()
 // Array.prototype.lastIndexOf()
