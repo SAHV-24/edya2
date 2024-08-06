@@ -337,10 +337,59 @@ console.log()
 console.log(answer) // returns true
 
 // Array.prototype.sort()
+    // sorts an array with a callback funciton that receives two arguments
+    // a , b; if a - b == 0 the sort of the elements will be the same
+    // if a - b == 1 or if you return a-b the sorting will be ascendent 
+    // if a - b == -1 or if you return b-a the sorting will be descendent
+
+theArray = [9,23,1,-4,2,90,123,2,-40,0,48]
+
+console.log()
+console.log(theArray.sort((a,b)=>a-b)) // returns [-40, -4,  0,  1,  2, 2,  9, 23, 48, 90, 123]
+console.log(theArray.sort((a,b)=>b-a)) // returns [123, 90, 48, 23,  9, 2,  2,  1,  0, -4,-40]
+
 // Array.prototype.splice()
+    // Deletes and can replace the elements on an array
+    // it'll return the deleted elements inside an Array.
+    // The parameters are: .splice(start,deletedElements,(item1,item2,...item_n))
+
+theArray = ['vegetables',"hamburger","fruits"]
+
+// it'll replace hamburguer with water, and add later eggs
+console.log(theArray.splice(1,1,"water","eggs")) // returns ['hamburger']
+console.log(theArray) // returns [ 'vegetables', 'water', 'eggs', 'fruits' ]
+
+
 // Array.prototype[@@iterator]()
+    // allows to get (returns) an .values() function (that is basically an iterator)
+    // which can be used in a for ... of loop
+
+theArray =[1,2,3,4,5]
+
+iterator = theArray[Symbol.iterator]()
+
+console.log()
+console.log(iterator.next()); // returns { value: 1, done: false }
+console.log(iterator.next()); // returns { value: 2, done: false }
+console.log(iterator.next()); // returns { value: 3, done: false }
+console.log(iterator.next()); // returns { value: 4, done: false }
+console.log(iterator.next()); // returns { value: 5, done: false }
+console.log(iterator.next()); // returns { value: undefined, done: true }
+
 // Array.prototype.toLocaleString()
+    // it returns the strings, objects or dates formatted to a 
+    // locale zone currency, hour, etc.., for example if you have some currencies array
+    
+theArray=[5000,23300,15000,100]
+
+console.log(theArray.toLocaleString("es-AR", { style: "currency", currency: "ARS" })) 
+// returns $ 5.000,00,$ 23.300,00,$ 15.000,00,$ 100,00
+
 // Array.prototype.toReversed()
+    // reverses the elements inside an array
+theArray = [1,2,3,4,5,6,7,8,9,10]
+
+console.log(theArray.toReversed()) // returns [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 // Array.prototype.toSorted()
 // Array.prototype.toSpliced()
