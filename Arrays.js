@@ -1,6 +1,6 @@
-// This is a program for knowing the usual array methods based on the
-// MDN Array Method's Documentation. You can visit it at: 
-// https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array 
+                // This is a program for knowing the usual array methods based on the
+                // MDN Array Method's Documentation. You can visit it at: 
+                // https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array 
 
 // Array.prototype.at()
     // Returns the value of the index that you send
@@ -264,11 +264,77 @@ console.log("\nDon't forget to add the " + theArray[answer-1])
 
 
 // Array.prototype.reduce()
+    // reduces an array to a determined value from left to right, it takes as parameters:
+    // accumulator, element, index, array
+
+theArray = [[1,2],[3,4],[5,6],[7,8]]
+
+let initialValue = []
+
+answer = theArray.reduce((accumulator, element)=> {
+                                accumulator.push(element)
+                                return accumulator}, initialValue )
+        // returns [ [ 1, 2 ], [ 3, 4 ], [ 5, 6 ], [ 7, 8 ] ]
+
+console.log()
+console.log(answer) // returns 36
+
 // Array.prototype.reduceRight()
+    // reduces an array to a determined value from RIGHT to LEFT, it takes as parameters:
+    // accumulator, element, index, array
+
+theArray = [[1,2],[3,4],[5,6],[7,8]]
+
+initialValue = []
+
+answer = theArray.reduceRight((accumulator, element) => [... accumulator, element], initialValue ) 
+
+console.log()
+console.log(answer) 
+// returns [ [ 7, 8 ], [ 5, 6 ], [ 3, 4 ], [ 1, 2 ] ]
+
 // Array.prototype.reverse()
+    // Inverses the array direction
+theArray = ['E','V','O','L']
+
+answer = theArray.reverse()
+
+console.log()
+console.log("All you need is: " + theArray)// returns "All you need is: L,O,V,E"
+
 // Array.prototype.shift()
+    // eliminates the first element of the array and returns it back.
+
+theArray = ['z','a','b','c','d','...']
+
+answer = theArray.shift()
+
+console.log()
+console.log('The alphabet is: '+ theArray + "," + answer) // returns "The alphabet is: a,b,c,d,...,z"
+
 // Array.prototype.slice()
+    // Helps you to slice the Array, it returns A COPY of the array that you want
+    // and doesn't affect the original array, it makes a DEEP copy of the Array
+    // it has the parameters (start,end) (IT DOESN'T CONTAIN THE END INDEX) [START,end)
+
+theArray = ['bread',"ham", "cheese","ham","bread"]
+
+answer = theArray.slice(1,theArray.length-1)
+
+console.log()
+console.log("Sandwich is nice but it wouldn't be nicer if it was because of the " + answer)
+// returns "Sandwich is nice but it wouldn't be nicer if it was because of the ham,cheese,ham"
+
 // Array.prototype.some()
+    // returns a boolean if the Array has at least SOME element that
+    // accomplish the condition!
+
+theArray = [3,7,9,13,99,999999,2]
+
+answer = theArray.some( number => number % 2 === 0)
+
+console.log()
+console.log(answer) // returns true
 
 // Array.prototype.sort()
 // Array.prototype.splice()
