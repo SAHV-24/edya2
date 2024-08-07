@@ -392,8 +392,77 @@ theArray = [1,2,3,4,5,6,7,8,9,10]
 console.log(theArray.toReversed()) // returns [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
 // Array.prototype.toSorted()
+    // It sorts an array and then creates a deep copy of the array 
+
+theArray=[{ name: 'apple', price: 50 }, { name: 'banana', price: 20 }, { name: 'cherry', price: 30 }];
+
+answer = theArray.toSorted((a,b)=> a.price - b.price)
+
+console.log()
+console.log(answer)// [{ name: 'banana', price: 20 }, { name: 'cherry', price: 30 }, { name: 'apple', price: 50 }]
+
+answer.push({name:"mandarine",price:3.00})
+console.log()
+console.log(theArray) // returns // [{ name: 'apple', price: 50 }, { name: 'banana', price: 20 }, { name: 'cherry', price: 30 }]
+                      // because it didn't modify the original array
+
 // Array.prototype.toSpliced()
+    // It splices an array an then returns a DEEP COPY of that array
+
+theArray  = ["Jan", "Mar", "Apr", "May"];
+
+answer = theArray.toSpliced(0,2,"November","December")
+
+console.log()
+console.log(answer) // returns [ 'November', 'December', 'Apr', 'May' ]
+
+
 // Array.prototype.toString()
+    // returns an String separated by commas of the array independent of the arrays inside it:
+
+theArray = [[1,[2,[3]]],[5,6,7],[8,9,0]]
+
+answer = theArray.toString()
+
+console.log()
+console.log(answer) // returns "1,2,3,5,6,7,8,9,0"
+
 // Array.prototype.unshift()
+    // Adds the elements at the beggining of the array and RETURNS THE New length of the array
+
+theArray = [9,23,31,213]
+
+answer = theArray.unshift(7,8)
+
+console.log()
+console.log(answer) // returns 6
+
 // Array.prototype.values()
+    // Returns an iterator of the values inside an array
+
+theArray = ['a','b','c']
+
+const values = theArray.values()
+
+console.log()
+for(let value of values){
+    console.log(value) 
+}/* returns 
+        a
+        b
+        c
+*/
+
+
 // Array.prototype.with()
+    // returns a deep copy of an array WITH an element change in a certain index
+    // array.with(index,newValue)
+
+theArray = ['june','july','september']
+
+answer = theArray.with(2,'august')
+
+console.log()
+console.log(answer) // returns [ 'june', 'july', 'august']
+
+// the end!
