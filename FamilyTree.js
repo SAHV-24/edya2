@@ -76,36 +76,24 @@ class FamilyTree{
         console.log(current.name)
     }
 
+
     inorder(current = this.root){
-        if(!current){
-            return
-        }else{
+       
+       if(!current)
+            return;
 
-            if(current.childrens.length != 0){
-                this.inorder(current.childrens[0])
-            }
-
+        if(current.childrens.length === 0)
+            console.log(current.name)
+        else{
+            this.inorder(current.childrens[0])
             console.log(current.name)
 
-            for(let i = 1; i< current.childrens;i++){
-                this.inorder(current.childrens[i])
+            for (let index = 1; index < current.childrens.length; index++) {
+                this.inorder(current.childrens[index])                
             }
-        }
 
+        }
     }
-    
 }
 
-let myFamily = new FamilyTree()
-
-myFamily.insert('Mechas','12')
-myFamily.insert('Oscar','2','Mechas')
-myFamily.insert('Camilo','2','Mechas')
-myFamily.insert('Vane','2','Mechas')
-myFamily.insert('Sergio','2','Oscar')
-myFamily.insert('Sebastián','2','Oscar')
-myFamily.insert('Lance','2','Vane')
-myFamily.insert('Juanda','2','Camilo')
-myFamily.insert('Majo','2','Camilo')
-
-myFamily.inorder()
+module.exports = FamilyTree
