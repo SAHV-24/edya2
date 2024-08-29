@@ -46,13 +46,17 @@ class BinaryTree {
             return
 
         console.log(node.value);
-        
+
         this.preOrder(node.left)
         this.preOrder(node.right)
     }
 
 
     height(current = this.root, array = [], acum = 0){
+
+        if(!this.root){ // if there's any node, return -1
+            return -1
+        }
 
         if(acum > 0){ // if it is counting, then...
 
