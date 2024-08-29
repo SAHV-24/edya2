@@ -46,6 +46,7 @@ class BinaryTree {
             return
 
         console.log(node.value);
+        
         this.preOrder(node.left)
         this.preOrder(node.right)
     }
@@ -80,7 +81,7 @@ class BinaryTree {
 
             // we put together both arrays and then, they'll get sorted in desc order, 
             // then, the first element of it will be the highest level of the tree
-            return left.concat(right).sort( (a,b)=> b - a)[0]
+            return Math.max(...left.concat(right))
 
         }
 
