@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types'
 
 export default function GifItem({ category, imgList }) {
+
+  console.log("imglist",imgList)
+
   return (
     <div className="category-list">
       <h2>&quot;{category}&quot;</h2>
