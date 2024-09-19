@@ -1,34 +1,20 @@
-import { useState, useEffect } from "react";
+import { useFetch } from "../useFetch.jsx";
+import {useCounter} from "../useCounter.jsx"
 
-export function MultipleCustomHooks(URL) {
-  let [obj, setObj] = useState({
-    data: null,
-    isLoading: true,
-    hasError: false,
-  });
 
-  async function getData(URL) {
-    setTimeout(async () => {
-      try {
-        const res = await fetch(URL);
-        const { forms } = await res.json();
 
-        const newObj = { data: forms[0].name, isLoading: false, hasError: false }
+function MultipleCustomHooks() {
 
-        setObj(newObj);
+  const { count, handleAdd} = useCounter(1)
 
-      } catch (err) {
-        console.error(err);
+  const { data, isLoading, hasError } = useFetch(`https://pokeapi.co/api/v2/pokemon/${count}`);
 
-        const newObj = { data: null, isLoading: false, hasError: true }
-        setObj(newObj);
-      }
-    }, 1000);
-  }
-
-  useEffect(() => {
-    getData(URL);
-  }, [URL]);
-
-  return { ...obj };
+  return (
+    <>
+      <blockquote>{isLoading && !hasError ? "Loading..." : data.forms[0].name} </blockquote>
+      <button onClick={handleAdd}>Incrementar </button>
+    </>
+  );
 }
+
+export default MultipleCustomHooks;
