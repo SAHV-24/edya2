@@ -1,13 +1,16 @@
-const TodoReducer = (initialState, action) => {
-    switch (action.type) {
-        default:
-            return initialState;
+const initialState = [
+  {
+    id: 1,
+    description: "Hacer todos los challenges",
+    done: false,
+  },
+];
 
-        case 'ABC':
-            throw new Error('action not yet implemented');
-            break;
-
-    }
+const TodoReducer = (state = initialState, action = {}) => {
+  if (action.type === "[TODO] add todo") {
+    return [...state, action.payload];
+  }
+  return state;
 };
 
-export default TodoReducer
+export default TodoReducer;

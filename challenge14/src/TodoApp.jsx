@@ -1,6 +1,7 @@
 import { useReducer } from "react";
 import TodoReducer from "./TodoReducer";
-import { Row } from "./Row";
+import { TodoList } from "./TodoList";
+import { TodoAdd } from "./TodoAdd";
 
 const initialState = [
   {
@@ -11,16 +12,23 @@ const initialState = [
 ];
 
 export const TodoApp = () => {
-  const [todos, dispatchTodo] = useReducer(TodoReducer, initialState);
+  const [todos, dispatch] = useReducer(TodoReducer, initialState);
+
+    const handleTodo = (todo)=>{
+
+        const action = {
+            type:'[TODO] add todo' ,
+            payload:todo
+        }
+
+        dispatch(action)
+    }
+
 
   return (
     <>
-      <h1>
-        TodoApp: 10, <small>Pendientes: 2</small>
-      </h1>
-      <hr />
-      <Row/>
-
+      <TodoAdd onNewTodo={handleTodo}></TodoAdd>
+      <TodoList todos={todos}></TodoList>
     </>
   );
 };
