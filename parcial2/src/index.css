@@ -11,6 +11,7 @@
 #calculator{
   border-radius: 4px;
   background-color: #383838;
+  border: 1.5px solid white;
   padding: 15px 5px 5px;
 }
 
@@ -71,32 +72,6 @@ h3{
   opacity: 0.2;
   cursor:pointer
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 :root {
