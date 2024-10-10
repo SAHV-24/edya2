@@ -1,10 +1,10 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import MultipleCustomHooks from './components/MultipleCustomHooks'
 import './index.css'
+import { App } from './views/App'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <MultipleCustomHooks/>
+    <App/>
   </StrictMode>,
 )
