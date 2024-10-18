@@ -106,12 +106,16 @@ a:visited {
 }
 
 .product {
-  display: grid;
-  grid-template-rows: 1fr 3.5fr 1fr;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 #big{
-  font-size: 200px;
+  font-size: 170px;
+  margin:0;
+  padding:0;
   text-align: center;
 }
 
@@ -123,9 +127,11 @@ a:visited {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap:30px;
 }
 
 .redirect-btns button{
+  font-size: 17px;
   background-color: #242424;
   color:white;
   border-radius: 40px;

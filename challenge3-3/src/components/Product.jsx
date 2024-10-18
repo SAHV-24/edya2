@@ -21,7 +21,6 @@ export function Product() {
       <h1>
         Products page for the <i>{id}</i>
       </h1>
-
       <div id="big">
         <span id="big">
           {id}
