@@ -9,14 +9,14 @@ export function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const username = usernameRef.current.value;
+
+
+    if(username.trim() == "") return 
 
     setIsLoggedIn(true);
-
-    const username = usernameRef.current.value;
-    if (username.trim() != "") setUsername(username);
-
+    setUsername(username);
     const path = localStorage.getItem("lastPath") || "/";
-
     navigate(path, {
       replace: true,
     });
@@ -24,7 +24,7 @@ export function Login() {
 
   return (
     <>
-      <form action="" onSubmit={handleSubmit}>
+      <form action="" onSubmit={handleSubmit} id="login-form">
         <section id="username">
           <h1>Username</h1>
           <input type="text" ref={usernameRef} />
@@ -33,7 +33,7 @@ export function Login() {
           <h1>Password</h1>
           <input type="text" />
         </section>
-        <button type="submit">Login</button>
+        <button type="submit" id="login-btn">Login</button>
       </form>
     </>
   );

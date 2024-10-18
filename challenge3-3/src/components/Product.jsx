@@ -2,6 +2,7 @@ import { createContext } from "react";
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 
 export function Product() {
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [params] = useSearchParams();

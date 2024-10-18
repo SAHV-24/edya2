@@ -4,7 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { SessionContext } from "../context/sessionContext";
 
 export function NavBar() {
-  const { isLoggedIn, setIsLoggedIn, username, setUsername } = useContext(SessionContext);
+  const { isLoggedIn, setIsLoggedIn, username, setUsername } =
+    useContext(SessionContext);
 
   const navigate = useNavigate();
   const logout = () => {
@@ -13,7 +14,7 @@ export function NavBar() {
     });
 
     setIsLoggedIn(false);
-    setUsername('')
+    setUsername("");
   };
 
   return (
@@ -39,22 +40,25 @@ export function NavBar() {
       >
         Products
       </NavLink>
-      <NavLink
-        to="/logout"
-        className={(args) => (args.isActive ? "active" : "")}
-        id="logout"
-        onClick={logout}
-      >
-        Logout
-      </NavLink>
-      <NavLink
-        to="/login"
-        className={(args) =>
-          `${args.isActive ? "active" : ""} ${isLoggedIn ? "green-text" : ""}`
-        }
-      >
-        Login
-      </NavLink>
+      {isLoggedIn ? (
+        <NavLink
+          to="/logout"
+          className={(args) => (args.isActive ? "active" : "")}
+          id="logout"
+          onClick={logout}
+        >
+          Logout
+        </NavLink>
+      ) : (
+        <NavLink
+          to="/login"
+          className={(args) =>
+            `${args.isActive ? "active" : ""} ${isLoggedIn ? "green-text" : ""}`
+          }
+        >
+          Login
+        </NavLink>
+      )}
       <a id="username">{username}</a>
     </nav>
   );
